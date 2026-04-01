@@ -49,4 +49,17 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+.github-calendar-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.github-calendar-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.github-calendar-container rect[fill="#2dd4bf"] {
+  filter: drop-shadow(0 0 2px rgba(45, 212, 191, 0.4));
+}
 

@@ -1,12 +1,11 @@
-
 import React, { useEffect } from 'react';
-import Cursor from '../components/Cursor';
-import Navbar from '../components/Navbar';
-import Hero from '../sections/Hero';
-import About from '../sections/About';
-import Toolkit from '../sections/Toolkit';
-import Works from '../sections/Works';
-import Contact from '../sections/Contact';
+import Cursor from './components/Cursor';
+import Navbar from './components/Navbar';
+import Hero from './sections/Hero';
+import About from './sections/About';
+import Toolkit from './sections/Toolkit';
+import Works from './sections/Works';
+import Contact from './sections/Contact';
 
 const App: React.FC = () => {
   useEffect(() => {
