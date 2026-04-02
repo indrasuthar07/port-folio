@@ -33,18 +33,12 @@ const colorMap: { [key: string]: string } = {
   'Git/GitHub': 'text-black',
 };
 
-const TiltCard = ({
+const TiltCard: React.FC<{ color: string; category: string; name: string; exp: string; url: string; }> = ({
   color,
   category,
   name,
   exp,
-  url // Added url prop
-}: {
-  color: string;
-  category: string;
-  name: string;
-  exp: string;
-  url: string; // Added url type
+  url
 }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -72,7 +66,7 @@ const TiltCard = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={() => { x.set(0); y.set(0); }}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className="relative p-4 md:p-6 bg-neutral-900/50 border border-white/5 rounded-xl flex flex-col justify-end interactive group overflow-hidden block"
+      className="relative p-4 md:p-6 bg-neutral-900/50 border border-white/5 rounded-xl flex flex-col justify-end interactive group overflow-hidden"
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
         <IconComponent
