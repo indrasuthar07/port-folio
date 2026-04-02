@@ -8,8 +8,8 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const today = new Date();
     setCurrentDate({
-      day: today.getDate().toString().padStart(2, '0'), // Adds a leading zero to single digits (e.g., "05")
-      month: today.toLocaleString('en-US', { month: 'short' }).toLowerCase() // "mar", "apr", etc.
+      day: today.getDate().toString().padStart(2, '0'),
+      month: today.toLocaleString('en-US', { month: 'short' }).toLowerCase() 
     });
   }, []);
   return (

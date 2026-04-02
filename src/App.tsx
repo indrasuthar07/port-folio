@@ -19,7 +19,6 @@ const App: React.FC = () => {
         }
       }
     };
-
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -28,7 +27,6 @@ const App: React.FC = () => {
     <div className="bg-[#0a0a0a] min-h-screen relative selection:bg-teal-400 selection:text-black">
       <Cursor />
       <Navbar />
-      
       <main className="relative z-10">
         <Hero />
         <About />
@@ -36,8 +34,6 @@ const App: React.FC = () => {
         <Works />
         <Contact />
       </main>
-
-      {/* Persistent Visual Texture Overlay */}
       <div className="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
     </div>
   );
