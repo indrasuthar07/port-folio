@@ -86,7 +86,11 @@ const About: React.FC = () => {
                 >
                   {/* Avatar */}
                   <div className="flex items-center justify-between pb-6 border-b border-white/10">
-                    <div className="flex items-center gap-4">
+                    <a className="flex items-center gap-4"
+                      href="https://github.com/indrasuthar07"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <img
                         src="https://avatars.githubusercontent.com/u/182353910?v=4"
                         alt="Indra Suthar"
@@ -96,7 +100,7 @@ const About: React.FC = () => {
                         <h3 className="text-white text-lg md:text-xl font-bold tracking-tight">IndraSuthar07</h3>
                         <h3 className="text-gray-400 text-sm md:text-sm font-bold tracking-tight">@indrasuthar07</h3>
                       </div>
-                    </div>
+                    </a>
                   </div>
                   <div className="pt-6">
                     <h3 className="text-white font-black leading-[0.95] tracking-tighter mb-1"

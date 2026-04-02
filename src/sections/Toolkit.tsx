@@ -37,12 +37,14 @@ const TiltCard = ({
   color,
   category,
   name,
-  exp
+  exp,
+  url // Added url prop
 }: {
   color: string;
   category: string;
   name: string;
   exp: string;
+  url: string; // Added url type
 }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -56,18 +58,21 @@ const TiltCard = ({
   const IconComponent = iconMap[name] || SiJavascript;
   const iconColor = colorMap[name] || "text-white";
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     x.set((e.clientX - rect.left) / rect.width - 0.5);
     y.set((e.clientY - rect.top) / rect.height - 0.5);
   };
 
   return (
-    <motion.div
+    <motion.a // Changed to motion.a for clickable linking
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
       onMouseMove={handleMouseMove}
       onMouseLeave={() => { x.set(0); y.set(0); }}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className="relative p-4 md:p-6 bg-neutral-900/50 border border-white/5 rounded-xl flex flex-col justify-end interactive group overflow-hidden"
+      className="relative p-4 md:p-6 bg-neutral-900/50 border border-white/5 rounded-xl flex flex-col justify-end interactive group overflow-hidden block"
     >
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
         <IconComponent
@@ -93,20 +98,20 @@ const TiltCard = ({
           {exp} Exp.
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 };
 
 const Toolkit: React.FC = () => {
   const tools = [
-    { name: 'JavaScript', category: 'Core', exp: '2y', color: 'bg-yellow-500' },
-    { name: 'React.js', category: 'Frontend', exp: '2y', color: 'bg-cyan-500' },
-    { name: 'Node.js', category: 'Backend', exp: '2y', color: 'bg-green-500' },
-    { name: 'MongoDB', category: 'Database', exp: '1y', color: 'bg-indigo-500' },
-    { name: 'Express.js', category: 'Backend', exp: '2y', color: 'bg-gray-500' },
-    { name: 'Tailwind', category: 'Design', exp: '2y', color: 'bg-teal-500' },
-    { name: 'OpenAI/LLMs', category: 'AI', exp: '1y', color: 'bg-purple-500' },
-    { name: 'Git/GitHub', category: 'Tools', exp: '2y', color: 'bg-slate-500' },
+    { name: 'JavaScript', category: 'Core', exp: '2y', color: 'bg-yellow-500', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+    { name: 'React.js', category: 'Frontend', exp: '2y', color: 'bg-cyan-500', url: 'https://react.dev/' },
+    { name: 'Node.js', category: 'Backend', exp: '2y', color: 'bg-green-500', url: 'https://nodejs.org/' },
+    { name: 'MongoDB', category: 'Database', exp: '1y', color: 'bg-indigo-500', url: 'https://www.mongodb.com/' },
+    { name: 'Express.js', category: 'Backend', exp: '2y', color: 'bg-gray-500', url: 'https://expressjs.com/' },
+    { name: 'Tailwind', category: 'Design', exp: '2y', color: 'bg-teal-500', url: 'https://tailwindcss.com/' },
+    { name: 'OpenAI/LLMs', category: 'AI', exp: '1y', color: 'bg-purple-500', url: 'https://openai.com/' },
+    { name: 'Git/GitHub', category: 'Tools', exp: '2y', color: 'bg-slate-500', url: 'https://github.com/' },
   ];
 
   return (
@@ -155,6 +160,7 @@ const Toolkit: React.FC = () => {
               category={tool.category}
               exp={tool.exp}
               color={tool.color}
+              url={tool.url} 
             />
           ))}
 

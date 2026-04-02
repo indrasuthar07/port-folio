@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
             onClick={scrollToTop}
             className="interactive accent-hover text-white"
           >
-            IS.
+            I.S.
           </button>
         </div>
         

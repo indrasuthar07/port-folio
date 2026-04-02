@@ -121,16 +121,15 @@ const Contact: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Call to Action Container */}
           <motion.div variants={itemVariants} className="mt-28 max-w-xl lg:text-end w-full flex flex-col lg:items-end">
             <p className="text-white/50 text-xs mb-8 font-normal uppercase tracking-[0.3em] mr-8">
               Have a Project in Mind?
             </p>
             
-            {/* Simpler, sleeker button with massive particle spread */}
             <motion.a
               ref={buttonRef}
               href="mailto:indrasuthar14@gmail.com"
+              rel="noreferrer"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{ x, y }}
