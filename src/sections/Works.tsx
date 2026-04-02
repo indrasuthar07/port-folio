@@ -70,6 +70,7 @@ const Works: React.FC = () => {
   const [xPosition, setXPosition] = useState(0);
   const [autoScroll, setAutoScroll] = useState(true);
   const trackRef = useRef<HTMLDivElement>(null);
+  
   const SLIDE_AMOUNT = typeof window !== 'undefined' && window.innerWidth >= 768 ? 480 : 300;
 
   const slideLeft = () => {
@@ -82,6 +83,7 @@ const Works: React.FC = () => {
       return next;
     });
   };
+  
   const slideRight = () => {
     setAutoScroll(false);
 
@@ -91,7 +93,6 @@ const Works: React.FC = () => {
 
       let next = prev - SLIDE_AMOUNT;
 
-      // seamless backward wrap
       if (Math.abs(next) >= halfWidth) {
         next = -SLIDE_AMOUNT;
       }
@@ -158,11 +159,13 @@ const Works: React.FC = () => {
                 key={`${project.title}-${idx}`}
                 className="flex-shrink-0 w-[260px] md:w-[500px] group interactive accent-hover"
               >
+                {/* Back to original container layout, relying purely on the image scaling to zoom */}
                 <div className="relative overflow-hidden rounded-2xl border border-white/10 mb-6 bg-neutral-900">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className=" transition-all duration-700 group-hover:scale-110 group-hover:opacity-50"
+                    // ADDED: scale-125 zooms the image in by default. group-hover:scale-[1.5] boosts it further on hover.
+                    className="w-full scale-120 transition-transform duration-700 group-hover:opacity-50"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -183,16 +186,15 @@ const Works: React.FC = () => {
                         {project.title}
                       </h3>
 
-                      {/* Hidden Description that slides up */}
                       <div className="max-h-0 group-hover:max-h-40 overflow-hidden transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
                         <p className="text-neutral-400 text-sm leading-relaxed mb-6 font-light">
                           {project.longDescription}
                         </p>
                         <div className="flex gap-6">
-                          <a href={project.link} className="mono text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2">
+                          <a href={project.link} target="_blank" rel="noreferrer" className="mono text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2">
                             View Project <span className="text-xs">↗</span>
                           </a>
-                          <a href={project.github} className="mono text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2">
+                          <a href={project.github} target="_blank" rel="noreferrer" className="mono text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2">
                             Source Code <span className="text-xs">↗</span>
                           </a>
                         </div>
@@ -200,8 +202,7 @@ const Works: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Subtle border glow on hover */}
-                  <div className="absolute inset-0 border border-teal-500/0 group-hover:border-teal-500/30 transition-colors duration-500 rounded-3xl" />
+                  <div className="absolute inset-0 border border-teal-500/0 group-hover:border-teal-500/30 transition-colors duration-500 rounded-3xl pointer-events-none" />
                 </div>
               </motion.div>
             ))}
