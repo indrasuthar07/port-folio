@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
       transition: { duration: 1, ease: customEase },
     },
   };
-
+  
   const buttonRef = useRef<HTMLAnchorElement>(null);
   const mX = useMotionValue(0);
   const mY = useMotionValue(0);
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
     if (rect) {
       const distanceX = e.clientX - (rect.left + rect.width / 2);
       const distanceY = e.clientY - (rect.top + rect.height / 2);
-      mX.set(distanceX * 0.35);
+      mX.set(distanceX * 0.35); 
       mY.set(distanceY * 0.35);
     }
   };
@@ -54,8 +54,8 @@ const Contact: React.FC = () => {
   const particles = useMemo(() => {
     return Array.from({ length: 120 }).map((_, i) => ({
       id: i,
-      x: Math.random() * 800 - 400,
-      y: Math.random() * 800 - 400,
+      x: Math.random() * 800 - 400, 
+      y: Math.random() * 800 - 400, 
       duration: 3 + Math.random() * 4,
       delay: Math.random() * 2,
       size: Math.random() * 3 + 1,
@@ -125,21 +125,21 @@ const Contact: React.FC = () => {
       name: "Twitter",
       href: "https://twitter.com/INDAR_X07",
       icon: (
-        <svg
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-7 h-7"
-        >
-          <path d="M18.244 2H21.5l-7.65 8.74L23 22h-7.406l-5.8-7.59L3.5 22H.244l8.2-9.37L1 2h7.594l5.2 6.87L18.244 2zm-2.6 18h2.06L7.35 4H5.16l10.484 16z" />
-        </svg>
+       <svg
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  xmlns="http://www.w3.org/2000/svg"
+  className="w-7 h-7"
+>
+  <path d="M18.244 2H21.5l-7.65 8.74L23 22h-7.406l-5.8-7.59L3.5 22H.244l8.2-9.37L1 2h7.594l5.2 6.87L18.244 2zm-2.6 18h2.06L7.35 4H5.16l10.484 16z"/>
+</svg>
       )
     }
   ];
 
   return (
     <footer id="contact" className="min-h-screen pt-12 pb-12 px-8 md:px-16 bg-[#0a0a0a] relative overflow-hidden flex flex-col justify-between z-0">
-      <motion.div
+      <motion.div 
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -150,7 +150,7 @@ const Contact: React.FC = () => {
             <span className="w-8 h-px bg-teal-400"></span>
             Get in Touch
           </motion.p>
-          <motion.h1
+          <motion.h1 
             variants={itemVariants}
             className="text-stone-100 text-[4rem] md:text-8xl lg:text-[10rem] font-bold leading-[0.9] whitespace-nowrap tracking-tighter"
           >
@@ -190,8 +190,8 @@ const Contact: React.FC = () => {
               {tags.map((tag, idx) => (
                 <motion.span
                   key={idx}
-                  whileHover={{
-                    scale: 1.05,
+                  whileHover={{ 
+                    scale: 1.05, 
                     borderColor: "rgba(45, 212, 191, 0.5)",
                     color: "#2dd4bf"
                   }}
@@ -208,7 +208,7 @@ const Contact: React.FC = () => {
             <p className="text-white/50 text-xs mb-8 font-normal uppercase tracking-[0.3em] mr-8 ml-8">
               Have a Project in Mind?
             </p>
-
+            
             <motion.a
               ref={buttonRef}
               href="mailto:indrasuthar14@gmail.com"
@@ -223,11 +223,11 @@ const Contact: React.FC = () => {
                   <motion.div
                     key={p.id}
                     className="absolute bg-teal-400 rounded-full blur-[0.5px]"
-                    style={{
-                      left: p.left,
-                      top: p.top,
-                      width: p.size,
-                      height: p.size
+                    style={{ 
+                      left: p.left, 
+                      top: p.top, 
+                      width: p.size, 
+                      height: p.size 
                     }}
                     animate={{
                       x: [0, p.x, 0],
@@ -248,10 +248,10 @@ const Contact: React.FC = () => {
               {/* Button */}
               <span className="relative z-10 font-bold uppercase tracking-[0.3em] text-lg flex items-center gap-3 font-normal">
                 Contact Me
-                <svg
-                  className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
-                  fill="none"
-                  stroke="currentColor"
+                <svg 
+                  className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" 
+                  fill="none" 
+                  stroke="currentColor" 
                   viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -262,24 +262,24 @@ const Contact: React.FC = () => {
         </div>
       </motion.div>
 
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
         viewport={{ once: true }}
         className="mt-10 border-t border-white/5 pt-1 pb-1 relative z-10 flex justify-center"
       >
-        <button
-          onClick={scrollToTop}
-          className="group flex flex-col items-center gap-3 mono text-[9px] text-teal-400/60 hover:text-teal-400 transition-all duration-500 uppercase tracking-[0.3em]"
-        >
-          <div className="w-10 h-10 rounded-full border border-teal-400/20 flex items-center justify-center group-hover:border-teal-400 group-hover:-translate-y-2 transition-all duration-500 ease-[0.22,1,0.36,1]">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 19V5M5 12l7-7 7 7" />
-            </svg>
-          </div>
-          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-normal">Back to top</span>
-        </button>
+            <button 
+              onClick={scrollToTop}
+              className="group flex flex-col items-center gap-3 mono text-[9px] text-teal-400/60 hover:text-teal-400 transition-all duration-500 uppercase tracking-[0.3em]"
+            >
+              <div className="w-10 h-10 rounded-full border border-teal-400/20 flex items-center justify-center group-hover:border-teal-400 group-hover:-translate-y-2 transition-all duration-500 ease-[0.22,1,0.36,1]">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 19V5M5 12l7-7 7 7" />
+                </svg>
+              </div>
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 font-normal">Back to top</span>
+            </button>
       </motion.div>
     </footer>
   );

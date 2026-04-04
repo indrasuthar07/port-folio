@@ -12,7 +12,7 @@ const Works: React.FC = () => {
     {
       title: 'PAYWALLET',
       year: '2025',
-      longDescription: 'A secure full-stack payment platform enabling QR-based and account-to-account transfers, processing 100+ transactions per day. Features dynamic QR code generation, real-time transaction dashboards, and scalable RESTful APIs handling concurrent requests from 20+ active users.',
+      longDescription: 'I wanted to understand how real payment systems work under the hood — so I built one. PayWallet handles QR-based and account-to-account transfers, generates dynamic payment codes on the fly, and gives every user a live dashboard to track where their money went.',
       tech: ['React', 'Node.js', 'MongoDB', 'Bcrypt'],
       image: paywallet,
       link: 'https://paywalletlive.vercel.app/',
@@ -30,16 +30,16 @@ const Works: React.FC = () => {
     {
       title: 'MEDNAMA',
       year: '2025',
-      longDescription: 'A FHIR R4–compliant terminology micro-service bridging India\'s NAMASTE codes and WHO ICD-11 (TM2 + Biomedicine) for Ayush EMR systems. Features auto-complete diagnosis lookup, NAMASTE↔TM2 translation, dual-coding FHIR Bundle upload, and OAuth 2.0 via ABHA tokens — built to India\'s 2016 EHR Standards.',
+      longDescription: 'Built for Smart India Hackathon. A FHIR-compliant bridge mapping India\'s NAMASTE codes to WHO ICD-11 — so Ayush and allopathic systems can finally talk to each other. The most meaningful thing I\'ve shipped so far.',
       tech: ['SIH-25', 'Node.js', 'ICD-11 API', 'OAuth 2.0'],
       image: medname,
       link: 'https://github.com/indrasuthar07/MedNama-SIH25',
       github: 'https://github.com/indrasuthar07/MedNama-SIH25',
     },
     {
-      title: 'QUIZ GEN',
+      title: 'LLMQuiz Engine',
       year: '2025',
-      longDescription: 'A Generative AI–powered quiz system that ingests user-uploaded PDFs (100+ pages) and auto-generates 50+ MCQs with real-time evaluation. Built with LangChain and OpenAI APIs delivering ~80% context-aware answer relevance, with session-based state management and accuracy metrics.',
+      longDescription: 'Drop in a PDF — any PDF, up to 100+ pages — and this system reads it, understands it, and fires back 50+ MCQs with real-time evaluation. Powered by OpenAI and LangChain. It\'s actually checking if your answers make sense contextually. Hit ~80% relevance accuracy.',
       tech: ['Python', 'OpenAI', 'LangChain', 'Streamlit'],
       image: quiz,
       link: 'https://github.com/indrasuthar07/MCQ_GEN-GenAI-',
@@ -48,7 +48,7 @@ const Works: React.FC = () => {
     {
       title: 'NexTask',
       year: '2026',
-      longDescription: 'A high-performance project management UI with fully synchronized Kanban, List, and Timeline views. Features custom pointer-event drag-and-drop (no library), virtual scrolling for 500+ tasks, URL-synced filters with browser history support, and simulated live collaboration presence — all state managed via Zustand.',
+      longDescription: 'Most project tools are either too much or not enough. NexTask is just right — Kanban, List, and Timeline in perfect sync, drag-and-drop built from scratch, 500+ tasks with zero lag, and a UI so intuitive you\'ll actually use it. Built with React 19, TypeScript, and Tailwind CSS.',
       tech: ['React 19', 'TypeScript', 'Tailwind CSS'],
       image: nextask,
       link: 'https://multiview-project-tracker-alpha.vercel.app/',
@@ -57,7 +57,7 @@ const Works: React.FC = () => {
     {
       title: 'Lockr',
       year: '2024',
-      longDescription: 'A full-stack MERN password manager with encrypted credential storage, JWT-based authentication, and a clean responsive UI. Supports secure register/login flows, one-click clipboard copy, and seamless frontend-backend communication via RESTful APIs — built for speed with Vite.',
+      longDescription: 'Passwords in a notes app. We\'ve all done it. Lockr is the proper fix — encrypted storage, JWT auth, one-click copy, and a UI clean enough that you\'ll actually use it. Built with React and Node.js, it securely hashes passwords with bcrypt and stores them in MongoDB.',
       tech: ['React', 'Node.js', 'MongoDB', 'bcrypt'],
       image: lockr,
       link: 'https://pass-manager-lite.vercel.app/',
@@ -70,7 +70,7 @@ const Works: React.FC = () => {
   const [xPosition, setXPosition] = useState(0);
   const [autoScroll, setAutoScroll] = useState(true);
   const trackRef = useRef<HTMLDivElement>(null);
-  
+
   const SLIDE_AMOUNT = typeof window !== 'undefined' && window.innerWidth >= 768 ? 480 : 300;
 
   const slideLeft = () => {
@@ -83,7 +83,7 @@ const Works: React.FC = () => {
       return next;
     });
   };
-  
+
   const slideRight = () => {
     setAutoScroll(false);
 
@@ -104,11 +104,12 @@ const Works: React.FC = () => {
   return (
     <section id="works" className="py-24 bg-[#0a0a0a] overflow-hidden">
       <div className="px-8 md:px-16 mb-16 max-w-7xl mx-auto">
-        <p className="mono text-teal-400 text-sm mb-4 uppercase tracking-widest">
+        <motion.p className="font-normal text-teal-400 text-xs md:text-sm mb-8 uppercase tracking-[0.4em] flex items-center gap-4">
+          <span className="w-8 h-px bg-teal-400"></span>
           Work
-        </p>
+        </motion.p>
         <h2 className="text-4xl md:text-7xl font-bold text-white">
-          Featured Projects.
+          Things I've built.
         </h2>
       </div>
 
@@ -159,12 +160,10 @@ const Works: React.FC = () => {
                 key={`${project.title}-${idx}`}
                 className="flex-shrink-0 w-[260px] md:w-[500px] group interactive accent-hover"
               >
-                {/* Back to original container layout, relying purely on the image scaling to zoom */}
                 <div className="relative overflow-hidden rounded-2xl border border-white/10 mb-6 bg-neutral-900">
                   <img
                     src={project.image}
                     alt={project.title}
-                    // ADDED: scale-125 zooms the image in by default. group-hover:scale-[1.5] boosts it further on hover.
                     className="w-full scale-120 transition-transform duration-700 group-hover:opacity-50"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
@@ -186,22 +185,21 @@ const Works: React.FC = () => {
                         {project.title}
                       </h3>
 
-                      <div className="max-h-0 group-hover:max-h-40 overflow-hidden transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
+                      <div className="max-h-0 group-hover:max-h-40 text-normal overflow-hidden transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
                         <p className="text-neutral-400 text-sm leading-relaxed mb-6 font-light">
                           {project.longDescription}
                         </p>
                         <div className="flex gap-6">
-                          <a href={project.link} target="_blank" rel="noreferrer" className="mono text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2">
+                          <a href={project.link} target="_blank" rel="noreferrer" className="text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2">
                             View Project <span className="text-xs">↗</span>
                           </a>
-                          <a href={project.github} target="_blank" rel="noreferrer" className="mono text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2">
+                          <a href={project.github} target="_blank" rel="noreferrer" className="text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2">
                             Source Code <span className="text-xs">↗</span>
                           </a>
                         </div>
                       </div>
                     </div>
                   </div>
-
                   <div className="absolute inset-0 border border-teal-500/0 group-hover:border-teal-500/30 transition-colors duration-500 rounded-3xl pointer-events-none" />
                 </div>
               </motion.div>
