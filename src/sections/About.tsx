@@ -8,7 +8,7 @@ const About: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
+  
   return (
     <section id="story" className="relative min-h-screen py-24 px-8 md:px-16 transition-colors duration-1000 overflow-hidden flex items-center"
       style={{ backgroundColor: isSpotifymode ? '#fafaf9' : '#0a0a0a' }}>
@@ -27,9 +27,9 @@ const About: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
         <div>
           <motion.p className="font-normal text-teal-400 text-xs md:text-sm mb-8 uppercase tracking-[0.4em] flex items-center gap-4">
-                      <span className="w-8 h-px bg-teal-400"></span>
-                      about
-                    </motion.p>
+            <span className="w-8 h-px bg-teal-400"></span>
+            about
+          </motion.p>
           <motion.h2
             className={`text-5xl md:text-7xl font-bold mb-8 leading-[1.1] ${isSpotifymode ? 'text-stone-900' : 'text-white'}`}
             initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center gap-6">
+          <div className="mt-12 flex flex-wrap items-center gap-8">
             <div className="flex items-center space-x-4">
               <span className={` text-[10px] uppercase tracking-widest ${isSpotifymode ? 'text-stone-400' : 'text-white/40'}`}>Digital Footprint</span>
               <button
@@ -62,6 +62,28 @@ const About: React.FC = () => {
               </button>
               <span className={` text-[10px] uppercase tracking-widest ${isSpotifymode ? 'text-orange-600 font-bold' : 'text-white/40'}`}>Sonic Influence</span>
             </div>
+
+            {/* Resume Button */}
+            <motion.a 
+              href='/IndRa.ResUme.pdf'
+              target="_blank" 
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`group flex items-center gap-3 px-6 py-3 border rounded-full transition-all duration-300 interactive shadow-sm ${
+                isSpotifymode 
+                ? 'border-stone-900/20 text-stone-900 hover:bg-stone-900 hover:text-white hover:shadow-stone-900/20' 
+                : 'border-white/10 text-white/80 hover:border-teal-400 hover:text-teal-400 hover:shadow-teal-400/20'
+              }`}
+            >
+              <span className="text-[11px] uppercase tracking-[0.25em] font-bold">Resume</span>
+              <motion.svg 
+                width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </motion.svg>
+            </motion.a>
 
             {isSpotifymode && (
               <button
@@ -78,7 +100,7 @@ const About: React.FC = () => {
           <div className={`absolute inset-0 border-[0.5px] rotate-3 transition-colors ${isSpotifymode ? 'border-white/20' : 'border-white/10'}`} />
           <div className={`absolute inset-0 border-[0.5px] -rotate-6 transition-colors ${isSpotifymode ? 'border-stone-900/10' : 'border-teal-400/20'}`} />
 
-          <div className="relative w-full h-full overflow-hidden bg-[] transition-all duration-700 rounded-3xl">
+          <div className="relative w-full h-full overflow-hidden transition-all duration-700 rounded-3xl">
             <AnimatePresence mode="wait">
               {!isSpotifymode ? (
                 <motion.div
@@ -88,7 +110,6 @@ const About: React.FC = () => {
                   exit={{ opacity: 0, scale: 0.95 }}
                   className="w-full h-full p-6 md:p-8 flex flex-col justify-between bg-black/50 rounded-3xl border border-white/5 shadow-2xl overflow-hidden"
                 >
-                  {/* Avatar */}
                   <div className="flex items-center justify-between pb-6 border-b border-white/10">
                     <a className="flex items-center gap-4"
                       href="https://github.com/indrasuthar07"
@@ -117,7 +138,6 @@ const About: React.FC = () => {
                     </h3>
                   </div>
 
-                  {/* Heatmap */}
                   <div className="flex-1 flex items-center justify-center github-calendar-container py-4">
                     <GitHubCalendar
                       username="indrasuthar07"
@@ -134,8 +154,7 @@ const About: React.FC = () => {
                     />
                   </div>
 
-                  {/* Footer Stats */}
-                  <div className="pt-6 border-t border-white/5 flex justify-between items-center font-normal text-[12px] text-white/60 uppercase tracking-widest">
+                  <div className="mono pt-6 border-t border-white/5 flex justify-between items-center font-normal text-[12px] text-white/60 uppercase tracking-widest">
                     <span>LATEST_PUSH: {new Date().toLocaleDateString()}</span>
                     <span>Open Source Contributor</span>
                   </div>
@@ -150,7 +169,6 @@ const About: React.FC = () => {
                   style={{ background: '#060d08' }}
                 >
                   <div className="absolute inset-0 z-0" style={{ background: '#060d08' }} />
-                  {/* ── Top bar ── */}
                   <div className="relative z-10 flex items-center justify-between px-6 pt-6 pb-5">
                     <div className="flex items-center gap-2.5">
                       <div className="w-7 h-7 rounded-full bg-[#1db954] flex items-center justify-center shadow-lg shadow-[#1db954]/30">
@@ -162,9 +180,7 @@ const About: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* ── Headline ── */}
                   <div className="relative z-10 px-6 pb-5">
-
                     <h3 className="text-white font-black leading-[0.95] tracking-tighter mb-1"
                       style={{ fontSize: 'clamp(1.6rem, 4vw, 2.2rem)' }}>
                       Music shapes
@@ -186,7 +202,6 @@ const About: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* ── Iframe ── */}
                   <div className="relative z-10 flex-1 px-5 pb-5 min-h-0">
                     <div className="w-full h-full rounded-2xl overflow-hidden ring-1 ring-white/5 shadow-2xl shadow-black/80">
                       <iframe

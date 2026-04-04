@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { ImGift } from 'react-icons/im';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +50,7 @@ const Navbar: React.FC = () => {
             onClick={scrollToTop}
             className="interactive accent-hover text-white"
           >
-            I.S.
+            <img src="https://fontmeme.com/temporary/8e55f7a3fe32ee66cf37ef8aa68855e4.png" alt="Logo" className="w-16 h-6" />
           </button>
         </div>
         
@@ -59,7 +60,7 @@ const Navbar: React.FC = () => {
             <button
               key={item}
               onClick={() => handleScroll(item.toLowerCase())}
-              className="mono text-xs uppercase tracking-widest text-white/50 hover:text-teal-400 transition-colors interactive"
+              className=" text-sm uppercase tracking-widest text-white/50 hover:text-teal-400 transition-colors interactive"
             >
               {item}
             </button>

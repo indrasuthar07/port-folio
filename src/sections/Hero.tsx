@@ -54,11 +54,11 @@ const Hero: React.FC = () => {
     <div className="absolute right-0 flex flex-col items-end opacity-0 translate-x-8 transition-all duration-700 ease-out pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 w-max">
       <div className="flex items-center gap-3 mb-3">
         <span className="text-3xl text-white/40 leading-none">☹</span>
-        <p className="text-sm md:text-base text-white/90 font-medium tracking-wide">
+        <p className="text-sm md:text-base text-white/90 font-normal tracking-wide">
           It's a fake availability.
         </p>
       </div>
-      <p className="text-teal-400 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.25em] text-right">
+      <p className="text-teal-400 font-normal text-[9px] md:text-[10px] uppercase tracking-[0.25em] text-right">
         Contact me to check actual status
       </p>
     </div>
@@ -66,14 +66,10 @@ const Hero: React.FC = () => {
   </div>
 </motion.div>
       <div className="relative z-10 max-w-7xl">
-        <motion.p 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="font-mono text-teal-400 text-[10px] sm:text-xs mb-4 md:mb-6 uppercase tracking-[0.3em]"
-        >
-          Engineering the Future
-        </motion.p>
+        <motion.p className="font-normal text-teal-400 text-xs md:text-xs mb-8 uppercase tracking-[0.4em] flex items-center gap-4">
+                  <span className="w-8 h-px bg-teal-400"></span>
+                  Engineering the future
+                </motion.p>
 
         <motion.h1
           className="text-[12vw] sm:text-xl md:text-9xl lg:text-[7rem] font-extrabold leading-[0.9] tracking-tighter select-none mb-6"
