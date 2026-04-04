@@ -26,13 +26,17 @@ const About: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
         <div>
+          <motion.p className="font-normal text-teal-400 text-xs md:text-sm mb-8 uppercase tracking-[0.4em] flex items-center gap-4">
+                      <span className="w-8 h-px bg-teal-400"></span>
+                      about
+                    </motion.p>
           <motion.h2
             className={`text-5xl md:text-7xl font-bold mb-8 leading-[1.1] ${isSpotifymode ? 'text-stone-900' : 'text-white'}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Code &<br />Creativity
+            Code &<br />Character.
           </motion.h2>
 
           <div className={`space-y-6 text-base md:text-lg leading-relaxed ${isSpotifymode ? 'text-black' : 'text-white/60'}`}>
@@ -40,13 +44,13 @@ const About: React.FC = () => {
               Software engineer specializing in full-stack development and Generative AI. I build scalable applications, from real-time communication platforms to LLM-driven evaluation systems.
             </p>
             <p>
-              Currently studying Computer Science at IIIT Bhagalpur, I combine a strong foundation in algorithmic logic—recognized as a LeetCode Knight and 3-Star CodeChef programmer—with production-ready technologies like React, Node.js, and LangChain.
+              Currently studying Computer Science at IIIT Bhagalpur, I combine a strong foundation in algorithmic logic—recognized as a <a href="https://leetcode.com/indrasuthar07/" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:underline">LeetCode </a> Knight and 3-Star<a href="https://www.codechef.com/users/indrasuthar7" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:underline"> CodeChef </a>programmer—with production-ready technologies like React, Node.js, and LangChain.
             </p>
           </div>
 
           <div className="mt-12 flex flex-wrap items-center gap-6">
             <div className="flex items-center space-x-4">
-              <span className={`mono text-[10px] uppercase tracking-widest ${isSpotifymode ? 'text-stone-400' : 'text-white/40'}`}>Digital Footprint</span>
+              <span className={` text-[10px] uppercase tracking-widest ${isSpotifymode ? 'text-stone-400' : 'text-white/40'}`}>Digital Footprint</span>
               <button
                 onClick={() => setisSpotifymode(!isSpotifymode)}
                 className={`w-14 h-7 rounded-full relative transition-colors duration-300 interactive accent-hover ${isSpotifymode ? 'bg-orange-500' : 'bg-white/10'}`}
@@ -56,7 +60,7 @@ const About: React.FC = () => {
                   animate={{ x: isSpotifymode ? 28 : 0 }}
                 />
               </button>
-              <span className={`mono text-[10px] uppercase tracking-widest ${isSpotifymode ? 'text-orange-600 font-bold' : 'text-white/40'}`}>Sonic Influence</span>
+              <span className={` text-[10px] uppercase tracking-widest ${isSpotifymode ? 'text-orange-600 font-bold' : 'text-white/40'}`}>Sonic Influence</span>
             </div>
 
             {isSpotifymode && (
@@ -109,7 +113,7 @@ const About: React.FC = () => {
                     </h3>
                     <h3 className="font-black leading-[0.95] tracking-tighter text-teal-400"
                       style={{ fontSize: 'clamp(1.6rem, 4vw, 2.2rem)' }}>
-                      every pixel.
+                      every commit.
                     </h3>
                   </div>
 
@@ -131,7 +135,7 @@ const About: React.FC = () => {
                   </div>
 
                   {/* Footer Stats */}
-                  <div className="pt-6 border-t border-white/5 flex justify-between items-center font-mono text-[12px] text-white/60 uppercase tracking-widest">
+                  <div className="pt-6 border-t border-white/5 flex justify-between items-center font-normal text-[12px] text-white/60 uppercase tracking-widest">
                     <span>LATEST_PUSH: {new Date().toLocaleDateString()}</span>
                     <span>Open Source Contributor</span>
                   </div>

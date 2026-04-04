@@ -59,7 +59,7 @@ const TiltCard: React.FC<{ color: string; category: string; name: string; exp: s
   };
 
   return (
-    <motion.a // Changed to motion.a for clickable linking
+    <motion.a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
@@ -75,20 +75,18 @@ const TiltCard: React.FC<{ color: string; category: string; name: string; exp: s
           group-hover:opacity-20 group-hover:scale-[1.4] group-hover:rotate-6`}
         />
       </div>
-
-      {/* Glow Effect */}
       <div
         className={`absolute -inset-2 opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-2xl pointer-events-none ${color}`}
       />
 
       <div style={{ transform: "translateZ(30px)" }} className="relative z-10">
-        <div className="mono text-[8px] md:text-[10px] text-white/30 uppercase tracking-tighter mb-1 md:mb-2 group-hover:text-teal-400 transition-colors">
+        <div className=" text-[8px] md:text-[10px] text-white/30 uppercase tracking-tighter mb-1 md:mb-2 group-hover:text-teal-400 transition-colors">
           {category}
         </div>
         <div className="text-sm md:text-xl font-bold text-white mb-0.5 md:mb-1 leading-tight">
           {name}
         </div>
-        <div className="mono text-[8px] md:text-[9px] text-white/20 uppercase">
+        <div className=" text-[8px] md:text-[9px] text-white/20 uppercase">
           {exp} Exp.
         </div>
       </div>
@@ -112,24 +110,21 @@ const Toolkit: React.FC = () => {
     <section id="arsenal" className="min-h-screen py-24 px-8 md:px-16 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 md:mb-20">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="mono text-teal-400 text-xs md:text-sm mb-4 uppercase tracking-widest"
-          >
-            Tech Stack
+          <motion.p className="font-normal text-teal-400 text-xs md:text-sm mb-8 uppercase tracking-[0.4em] flex items-center gap-4">
+            <span className="w-8 h-px bg-teal-400"></span>
+            Tech stack
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-7xl font-bold text-white leading-tight"
           >
-            Technologies &<br className="hidden md:block" /> Skills Mastery.
+            Tools I<br className="hidden md:block" /> Actually Use.
           </motion.h2>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[10rem] md:auto-rows-[14rem]">
-          
+
           {/* Hero Card */}
           <motion.div
             whileHover={{ scale: 0.98 }}
@@ -137,10 +132,10 @@ const Toolkit: React.FC = () => {
           >
             <div className="relative z-10">
               <div className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-6">
-                Building Tomorrow's Solutions.
+                The right tool for the <br/> right problem.
               </div>
               <p className="text-white/40 leading-relaxed text-sm md:text-lg">
-                Full-stack expertise spanning frontend, backend, databases, and AI/ML. Proficient in modern frameworks and emerging technologies.
+I've picked these up over time — some from projects, some from failing at projects, some just from being too curious at 2am. <br />I'm comfortable across the full stack and always adding something new.
               </p>
             </div>
             <div className="absolute top-0 right-0 w-32 md:w-64 h-32 md:h-64 bg-teal-400/5 blur-[100px] pointer-events-none" />
@@ -154,7 +149,7 @@ const Toolkit: React.FC = () => {
               category={tool.category}
               exp={tool.exp}
               color={tool.color}
-              url={tool.url} 
+              url={tool.url}
             />
           ))}
 
@@ -163,8 +158,8 @@ const Toolkit: React.FC = () => {
             className="col-span-2 bg-gradient-to-br from-teal-500/10 to-transparent border border-teal-400/20 p-6 md:p-8 flex items-center justify-between interactive accent-hover rounded-2xl"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="text-lg md:text-2xl font-bold text-white italic">
-              "Solving problems through elegant code."
+            <div className="text-lg md:text-2xl font-bold text-white max-w-md">
+              "Good code is obvious. Great code is invisible."
             </div>
             <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-teal-400 flex items-center justify-center group">
               <svg
