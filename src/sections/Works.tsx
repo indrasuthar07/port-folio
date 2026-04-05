@@ -158,7 +158,7 @@ const Works: React.FC = () => {
             {displayProjects.map((project, idx) => (
               <motion.div
                 key={`${project.title}-${idx}`}
-                className="flex-shrink-0 w-[260px] md:w-[500px] group interactive accent-hover"
+                className="flex-shrink-0 w-[300px] md:w-[500px] group interactive accent-hover"
               >
                 <div className="relative overflow-hidden rounded-2xl border border-white/10 mb-6 bg-neutral-900">
                   <img
@@ -168,35 +168,37 @@ const Works: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                  <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between z-10">
                     <div className="flex justify-between items-start opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                      <div className="flex flex-wrap gap-2">
+                      <div className="hidden md:flex flex-wrap gap-2 max-w-[80%]">
                         {project.tech.map(t => (
                           <span key={t} className="mono text-[10px] px-3 py-1 bg-white/5 backdrop-blur-md border border-white/10 text-white/70 rounded-full">
                             {t}
                           </span>
                         ))}
                       </div>
-                      <span className="mono text-xs text-white/40">{project.year}</span>
+
+                      <span className="mono text-xs text-white/40 shrink-0 ml-auto">{project.year}</span>
                     </div>
 
                     <div className="mt-2 transform transition-transform duration-500 group-hover:-translate-y-2">
-                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                      <h3 className="text-2xl md:text-4xl font-bold text-white mb-3 md:mb-4 tracking-tight">
                         {project.title}
                       </h3>
 
-                      <div className="max-h-0 group-hover:max-h-40 text-normal overflow-hidden transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
-                        <p className="text-neutral-400 text-sm leading-relaxed mb-6 font-light">
+                      <div className="flex flex-wrap gap-2 md:gap-6 mb-2 relative z-20">
+                        <a href={project.link} target="_blank" rel="noreferrer" className="text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2 p-1 -ml-1">
+                          View Project <span className="text-xs">↗</span>
+                        </a>
+                        <a href={project.github} target="_blank" rel="noreferrer" className="text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2 p-1">
+                          Source Code <span className="text-xs">↗</span>
+                        </a>
+                      </div>
+
+                      <div className="max-h-0 group-hover:max-h-[400px] text-normal overflow-hidden transition-all duration-700 ease-in-out opacity-0 group-hover:opacity-100">
+                        <p className="text-neutral-400 text-xs md:text-sm leading-relaxed mt-2 font-light">
                           {project.longDescription}
                         </p>
-                        <div className="flex gap-6">
-                          <a href={project.link} target="_blank" rel="noreferrer" className="text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2">
-                            View Project <span className="text-xs">↗</span>
-                          </a>
-                          <a href={project.github} target="_blank" rel="noreferrer" className="text-[10px] uppercase tracking-[0.2em] text-white hover:text-teal-400 transition-colors flex items-center gap-2">
-                            Source Code <span className="text-xs">↗</span>
-                          </a>
-                        </div>
                       </div>
                     </div>
                   </div>

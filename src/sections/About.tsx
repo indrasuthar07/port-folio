@@ -1,14 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GitHubCalendar } from 'react-github-calendar';
 
 const About: React.FC = () => {
   const [isSpotifymode, setisSpotifymode] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-  
+
+  useEffect(() => {
+    if (!isSpotifymode) {
+      let checkCount = 0;
+      const checkAndScroll = setInterval(() => {
+        if (scrollRef.current) {
+          const { scrollWidth, clientWidth } = scrollRef.current;
+          if (scrollWidth > clientWidth) {
+            scrollRef.current.scrollLeft = scrollWidth;
+            clearInterval(checkAndScroll);
+          }
+        }
+        checkCount++;
+        if (checkCount > 50) clearInterval(checkAndScroll);
+      }, 100);
+
+      return () => clearInterval(checkAndScroll);
+    }
+  }, [isSpotifymode]);
+
   return (
     <section id="story" className="relative min-h-screen py-24 px-8 md:px-16 transition-colors duration-1000 overflow-hidden flex items-center"
       style={{ backgroundColor: isSpotifymode ? '#fafaf9' : '#0a0a0a' }}>
@@ -96,7 +116,7 @@ const About: React.FC = () => {
           </div>
         </div>
 
-        <div className="relative aspect-square w-full max-w-md lg:max-w-none mx-auto lg:mx-0">
+        <div className="relative min-h-[480px] md:min-h-0 aspect-[4/5] md:aspect-square w-full max-w-md lg:max-w-none mx-auto lg:mx-0">
           <div className={`absolute inset-0 border-[0.5px] rotate-3 transition-colors ${isSpotifymode ? 'border-white/20' : 'border-white/10'}`} />
           <div className={`absolute inset-0 border-[0.5px] -rotate-6 transition-colors ${isSpotifymode ? 'border-stone-900/10' : 'border-teal-400/20'}`} />
 
@@ -108,10 +128,10 @@ const About: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  className="w-full h-full p-6 md:p-8 flex flex-col justify-between bg-black/50 rounded-3xl border border-white/5 shadow-2xl overflow-hidden"
+                  className="w-full h-full p-2 md:p-8 flex flex-col justify-between bg-black/50 rounded-3xl border border-white/5 shadow-2xl overflow-hidden"
                 >
-                  <div className="flex items-center justify-between pb-6 border-b border-white/10">
-                    <a className="flex items-center gap-4"
+                  <div className="flex items-center justify-between pb-5 md:pb-6 border-b border-white/10">
+                    <a className="flex items-center gap-3 md:gap-4"
                       href="https://github.com/indrasuthar07"
                       target="_blank"
                       rel="noreferrer"
@@ -123,11 +143,12 @@ const About: React.FC = () => {
                       />
                       <div className="flex flex-col text-left">
                         <h3 className="text-white text-lg md:text-xl font-bold tracking-tight">IndraSuthar07</h3>
-                        <h3 className="text-gray-400 text-sm md:text-sm font-bold tracking-tight">@indrasuthar07</h3>
+                        <h3 className="text-gray-400 text-xs md:text-sm font-bold tracking-tight">@indrasuthar07</h3>
                       </div>
                     </a>
                   </div>
-                  <div className="pt-6">
+                  
+                  <div className="pt-4 md:pt-6">
                     <h3 className="text-white font-black leading-[0.95] tracking-tighter mb-1"
                       style={{ fontSize: 'clamp(1.6rem, 4vw, 2.2rem)' }}>
                       Logic in
@@ -138,23 +159,50 @@ const About: React.FC = () => {
                     </h3>
                   </div>
 
-                  <div className="flex-1 flex items-center justify-center github-calendar-container py-4">
-                    <GitHubCalendar
-                      username="indrasuthar07"
-                      blockSize={11}
-                      blockMargin={4}
-                      fontSize={12}
-                      theme={{
-                        light: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-                        dark: ['#161b22', '#004d40', '#00796b', '#00bfa5', '#2dd4bf'],
-                      }}
-                      style={{ color: '#ffffff' }}
-                      hideColorLegend
-                      hideTotalCount
-                    />
+                  <div 
+                    ref={scrollRef}
+                    className="flex-1 flex items-center overflow-x-auto w-full py-4 pb-4 custom-scrollbar scroll-smooth"
+                  >
+                    <style>{`
+                      /* Custom Scrollbar Styling */
+                      .custom-scrollbar::-webkit-scrollbar {
+                        height: 6px;
+                      }
+                      .custom-scrollbar::-webkit-scrollbar-track {
+                        background: rgba(255, 255, 255, 0.03);
+                        border-radius: 8px;
+                      }
+                      .custom-scrollbar::-webkit-scrollbar-thumb {
+                        background: rgba(45, 212, 191, 0.3); /* subtle teal-400 */
+                        border-radius: 8px;
+                      }
+                      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                        background: rgba(45, 212, 191, 0.6);
+                      }
+                      /* Firefox support */
+                      .custom-scrollbar {
+                        scrollbar-width: thin;
+                        scrollbar-color: rgba(45, 212, 191, 0.3) rgba(255, 255, 255, 0.03);
+                      }
+                    `}</style>
+                    <div className="min-w-[550px] md:min-w-full pr-2 md:pr-0 pb-2">
+                      <GitHubCalendar
+                        username="indrasuthar07"
+                        blockSize={11}
+                        blockMargin={4}
+                        fontSize={12}
+                        theme={{
+                          light: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+                          dark: ['#161b22', '#004d40', '#00796b', '#00bfa5', '#2dd4bf'],
+                        }}
+                        style={{ color: '#ffffff' }}
+                        hideColorLegend
+                        hideTotalCount
+                      />
+                    </div>
                   </div>
 
-                  <div className="mono pt-6 border-t border-white/5 flex justify-between items-center font-normal text-[12px] text-white/60 uppercase tracking-widest">
+                  <div className="mono pt-4 md:pt-6 border-t border-white/5 flex  md:flex-row justify-between items-start md:items-center gap-2 md:gap-0 font-normal text-[10px] md:text-[12px] text-white/60 uppercase tracking-widest">
                     <span>LATEST_PUSH: {new Date().toLocaleDateString()}</span>
                     <span>Open Source Contributor</span>
                   </div>
@@ -203,10 +251,10 @@ const About: React.FC = () => {
                   </div>
 
                   <div className="relative z-10 flex-1 px-5 pb-5 min-h-0">
-                    <div className="w-full h-full rounded-2xl overflow-hidden ring-1 ring-white/5 shadow-2xl shadow-black/80">
+                    <div className="w-full h-full rounded-2xl overflow-hidden ring-1 ring-white/5 shadow-2xl shadow-black/80 bg-neutral-900">
                       <iframe
                         style={{ borderRadius: '16px', display: 'block' }}
-                        src="https://open.spotify.com/embed/playlist/37i9dQZF1E4ANtHWm6KA1P?utm_source=generator&theme=0"
+                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS?utm_source=generator&theme=0"
                         width="100%"
                         height="100%"
                         frameBorder="0"

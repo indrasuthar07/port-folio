@@ -119,7 +119,7 @@ const Toolkit: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-7xl font-bold text-white leading-tight"
           >
-            Tools I<br className="hidden md:block" /> Actually Use.
+            Tools I<br /> Actually Use.
           </motion.h2>
         </div>
 
@@ -127,19 +127,19 @@ const Toolkit: React.FC = () => {
 
           {/* Hero Card */}
           <motion.div
-            whileHover={{ scale: 0.98 }}
-            className="col-span-2 md:row-span-2 bg-neutral-900 border border-white/5 p-6 md:p-10 flex flex-col justify-between interactive transition-colors hover:border-teal-400/30 relative overflow-hidden rounded-2xl"
-          >
-            <div className="relative z-10">
-              <div className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-6">
-                The right tool for the <br/> right problem.
-              </div>
-              <p className="text-white/40 leading-relaxed text-sm md:text-lg">
-I've picked these up over time — some from projects, some from failing at projects, some just from being too curious at 2am. <br />I'm comfortable across the full stack and always adding something new.
-              </p>
-            </div>
-            <div className="absolute top-0 right-0 w-32 md:w-64 h-32 md:h-64 bg-teal-400/5 blur-[100px] pointer-events-none" />
-          </motion.div>
+  whileHover={{ scale: 0.98 }}  className="col-span-2 md:row-span-2 h-full bg-neutral-900 border border-white/5 p-5 md:p-10 flex flex-col justify-center md:justify-normal interactive transition-colors hover:border-teal-400/30 relative overflow-hidden rounded-2xl"
+>
+  <div className="relative z-10">
+    <div className="text-2xl md:text-4xl font-bold text-white mb-3 md:mb-6 leading-tight">
+      The right tool for the <br className="hidden md:block"/> right problem.
+    </div>
+    
+    <p className="text-white/40 leading-relaxed text-xs md:text-lg">
+      I've picked these up over time — some from projects, some from failing at projects, some just from being too curious at 2am. <br className="hidden md:block"/>I'm comfortable across the full stack and always adding something new.
+    </p>
+  </div>
+  <div className="absolute top-0 right-0 w-32 md:w-64 h-32 md:h-64 bg-teal-400/5 blur-[100px] pointer-events-none" />
+</motion.div>
 
           {/* Skill Cards */}
           {tools.map((tool) => (
