@@ -84,20 +84,19 @@ const About: React.FC = () => {
             </div>
 
             {/* Resume Button */}
-            <motion.a 
+            <motion.a
               href='/IndRa.ResUme.pdf'
-              target="_blank" 
+              target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`group flex items-center gap-3 px-6 py-3 border rounded-full transition-all duration-300 interactive shadow-sm ${
-                isSpotifymode 
-                ? 'border-stone-900/20 text-stone-900 hover:bg-stone-900 hover:text-white hover:shadow-stone-900/20' 
-                : 'border-white/10 text-white/80 hover:border-teal-400 hover:text-teal-400 hover:shadow-teal-400/20'
-              }`}
+              className={`group flex items-center gap-3 px-6 py-3 border rounded-full transition-all duration-300 interactive shadow-sm ${isSpotifymode
+                  ? 'border-stone-900/20 text-stone-900 hover:bg-stone-900 hover:text-white hover:shadow-stone-900/20'
+                  : 'border-white/10 text-white/80 hover:border-teal-400 hover:text-teal-400 hover:shadow-teal-400/20'
+                }`}
             >
               <span className="text-[11px] uppercase tracking-[0.25em] font-bold">Resume</span>
-              <motion.svg 
+              <motion.svg
                 width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
                 className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               >
@@ -147,7 +146,7 @@ const About: React.FC = () => {
                       </div>
                     </a>
                   </div>
-                  
+
                   <div className="pt-4 md:pt-6">
                     <h3 className="text-white font-black leading-[0.95] tracking-tighter mb-1"
                       style={{ fontSize: 'clamp(1.6rem, 4vw, 2.2rem)' }}>
@@ -159,7 +158,7 @@ const About: React.FC = () => {
                     </h3>
                   </div>
 
-                  <div 
+                  <div
                     ref={scrollRef}
                     className="flex-1 flex items-center overflow-x-auto w-full py-4 pb-4 custom-scrollbar scroll-smooth"
                   >
@@ -254,7 +253,7 @@ const About: React.FC = () => {
                     <div className="w-full h-full rounded-2xl overflow-hidden ring-1 ring-white/5 shadow-2xl shadow-black/80 bg-neutral-900">
                       <iframe
                         style={{ borderRadius: '16px', display: 'block' }}
-                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wzrS?utm_source=generator&theme=0"
+                        src="https://open.spotify.com/embed/album/6pfy67TobYnXA5vrNa2aCB?utm_source=generator&theme=0"
                         width="100%"
                         height="100%"
                         frameBorder="0"
