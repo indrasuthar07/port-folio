@@ -6,9 +6,19 @@ import nextask from '../assets/nextask.png';
 import talksy from '../assets/talksy.png';
 import quiz from '../assets/quiz.png';
 import lockr from '../assets/lockr.png';
+import aether from '../assets/aether.png'
 
 const Works: React.FC = () => {
   const projects = [
+    {
+    title: 'AETHER',
+    year: '2026', 
+    longDescription: 'Engineered to eliminate remote collaboration bottlenecks. Aether is a zero-config, P2P terminal broadcasting tool that drops users into a live, interactive shell using a 6-digit code. It leverages WebRTC DataChannels for secure, zero-latency, E2EE streaming, ensuring terminal I/O never touches a centralized server.',
+    tech: ['React', 'Node.js', 'WebRTC', 'WebSockets', 'xterm.js'],
+    image: aether,
+    link: 'https://useaether.vercel.app/',
+    github: 'https://github.com/indrasuthar07/Aether',
+    },
     {
       title: 'PAYWALLET',
       year: '2025',
