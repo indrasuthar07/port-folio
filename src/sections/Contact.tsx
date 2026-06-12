@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+ import React, { useRef, useState, useMemo } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const Contact: React.FC = () => {

@@ -85,7 +85,7 @@ const About: React.FC = () => {
 
             {/* Resume Button */}
             <motion.a
-              href='/Indra_Resume.pdf'
+              href='/indra_resume.pdf'
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
