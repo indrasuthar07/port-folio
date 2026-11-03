@@ -11,13 +11,22 @@ import aether from '../assets/aether.png'
 const Works: React.FC = () => {
   const projects = [
     {
-    title: 'AETHER',
-    year: '2026', 
-    longDescription: 'Engineered to eliminate remote collaboration bottlenecks. Aether is a zero-config, P2P terminal broadcasting tool that drops users into a live, interactive shell using a 6-digit code. It leverages WebRTC DataChannels for secure, zero-latency, E2EE streaming, ensuring terminal I/O never touches a centralized server.',
-    tech: ['React', 'Node.js', 'WebRTC', 'WebSockets', 'xterm.js'],
-    image: aether,
-    link: 'https://useaether.vercel.app/',
-    github: 'https://github.com/indrasuthar07/Aether',
+      title: 'AETHER',
+      year: '2026',
+      longDescription: 'Engineered to eliminate remote collaboration bottlenecks. Aether is a zero-config, P2P terminal broadcasting tool that drops users into a live, interactive shell using a 6-digit code. It leverages WebRTC DataChannels for secure, zero-latency, E2EE streaming, ensuring terminal I/O never touches a centralized server.',
+      tech: ['React', 'Node.js', 'WebRTC', 'WebSockets', 'xterm.js'],
+      image: aether,
+      link: 'https://useaether.vercel.app/',
+      github: 'https://github.com/indrasuthar07/Aether',
+    },
+    {
+      title: 'Cmdora',
+      year: '2026',
+      longDescription: 'An AI-driven CLI tool that converts natural language into shell and Git executions. Built with a dual-execution engine, Cmdora routes safe commands through deterministic workflows locally and uses Gemini structured outputs for complex tasks, complete with schema validation, secret redaction, and policy-based safety controls.',
+      tech: ['Python', 'Gemini API', 'Git', 'PowerShell', 'Pytest'],
+      image: cmdora,
+      link: 'https://cmdora-ai.vercel.app',
+      github: 'https://github.com/indrasuthar07/cmdora',
     },
     {
       title: 'PAYWALLET',
